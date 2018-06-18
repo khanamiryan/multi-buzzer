@@ -1,0 +1,36 @@
+{
+  "name": "multi-buzzer",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^4.0.0-alpha.6",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-scripts": "1.1.4",
+    "reactstrap": "^6.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "description": "Multi Buzzer Application with Countdown Timer and Hardwar Backend",
+  "keywords": [
+    "react",
+    "timer",
+    "countdown",
+    "buzzer",
+    "socket"
+  ],
+  "author": "Narek Keryan <narek.keryan@gmail.com> (http://nkgdev.com)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/narekkeryan/multi-buzzer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/narekkeryan/multi-buzzer/issues"
+  },
+  "homepage": "https://github.com/narekkeryan/multi-buzzer#readme"
+}

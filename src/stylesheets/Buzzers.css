@@ -1,0 +1,16 @@
+.buzzers {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.buzzer {
+    width: 200px;
+    height: 200px;
+    margin: 15px;
+    border: 10px solid #fff;
+    border-radius: 50%;
+    background-color: #f8f8f8;
+    box-shadow: 0 0 10px 0 #ccc;
+}
