@@ -8,6 +8,8 @@ This project uses [Create React App](https://github.com/facebookincubator/create
   - [Reset Countdown](#reset-countdown)
   - [Decrease Time](#decrease-time)
   - [Increase Time](#increase-time)
+- [Buzzers](#buzzers)
+  - [Switch Button](#switch-button)
   
 ## Countdown Timer
 
@@ -32,3 +34,11 @@ Minus in the left side of timer decreases time for 15 seconds.
 ### Increase Time
 
 Plus in the right side of timer increases time for 15 seconds.
+
+## Buzzers
+
+Buzzers use [socket.io](https://socket.io/) to get pushed data and change state of buzzer buttons. It has open connection in ```http://localhost:5000```.
+ 
+### Switch Button
+
+Switch Button toggles connection with server.
