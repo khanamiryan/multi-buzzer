@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { clearData, toggleConnection } from '../socket';
 import { Button } from 'reactstrap';
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import timeSound from '../audio/time-sound.mp3';
 import timeSoundDanger from '../audio/time-sound-2.mp3';
+import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../stylesheets/Timer.css';
 
 class Timer extends Component {
@@ -43,16 +44,20 @@ class Timer extends Component {
     startTimer() {
         if (this.timer === 0) {
             this.timer = setInterval(this.countDown, 1000);
+            toggleConnection(true);
         }
     }
 
     pauseTimer() {
         clearInterval(this.timer);
         this.timer = 0;
+        toggleConnection(false);
     }
 
     resetTimer() {
         clearInterval(this.timer);
+        clearData();
+        toggleConnection(true);
         this.timer = 0;
         this.setState({ time: { m: [0, 1], s: [0, 0] }, seconds: 60, timeColor: '#ffffff' });
     }
@@ -82,7 +87,8 @@ class Timer extends Component {
 
         // Check if we're at zero.
         if (seconds === 0) {
-            this.resetTimer();
+            clearInterval(this.timer);
+            toggleConnection(false);
         }
     }
 
