@@ -56,10 +56,10 @@ class Timer extends Component {
 
     resetTimer() {
         clearInterval(this.timer);
-        clearData();
-        toggleConnection(true);
         this.timer = 0;
         this.setState({ time: { m: [0, 1], s: [0, 0] }, seconds: 60, timeColor: '#ffffff' });
+        toggleConnection(true);
+        clearData();
     }
 
     countDown() {
