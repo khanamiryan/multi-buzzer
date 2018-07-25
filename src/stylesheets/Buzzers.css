@@ -2,11 +2,12 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    margin-top: 15px;
 }
 
 .buzzer {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     margin: 15px;
     border: 10px solid #fff;
     border-radius: 50%;
@@ -37,6 +38,18 @@
 
 .buzzer.w {
     background: #fff;
+}
+
+.buzzer.p {
+    background: #ffc0cb;
+}
+
+.buzzer.o {
+    background: #ffa500;
+}
+
+.buzzer.pu {
+    background: #800080;
 }
 
 /* Toggle */

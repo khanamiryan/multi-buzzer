@@ -26,6 +26,7 @@ class Buttons extends Component {
                 <div className={!!this.state.data[2] ? `buzzer active ${this.state.data[2]}` : 'buzzer'}></div>
                 <div className={!!this.state.data[3] ? `buzzer active ${this.state.data[3]}` : 'buzzer'}></div>
                 <div className={!!this.state.data[4] ? `buzzer active ${this.state.data[4]}` : 'buzzer'}></div>
+                <div className={!!this.state.data[5] ? `buzzer active ${this.state.data[5]}` : 'buzzer'}></div>
             </div>
         );
     }
