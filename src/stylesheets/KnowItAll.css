@@ -1,0 +1,41 @@
+html, body, #root, .App, .game-area {
+  height: 100%;
+}
+
+.game-area {
+  display: flex;
+}
+
+.game-area > div {
+  flex: 1;
+}
+
+.game-area > div:last-child {
+  background-color: #0f0;
+}
+
+.game-area > div:first-child .flip-container {
+  color: #fff;
+}
+
+.game-area > div:first-child .flip-container .flip-item {
+  background-color: #0f0;
+}
+
+.game-area > div:last-child .flip-container {
+  color: #0f0;
+}
+
+.game-area > div:last-child .flip-container .flip-item {
+  background-color: #fff;
+}
+
+.game-area .flip-item {
+  height: 180px;
+  width: 160px;
+}
+
+.game-area .digit {
+  font-size: 180px;
+}
+

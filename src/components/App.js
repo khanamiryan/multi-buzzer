@@ -1,16 +1,34 @@
 import React, { Component } from 'react';
-import Timer from './Timer';
-import Buzzers from './Buzzers';
+import { Button } from 'reactstrap';
+import GameModes from '../constants/GameModes';
 import '../stylesheets/App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { gameMode: -1 };
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      gameMode: e.target.dataset.id
+    });
+  };
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <Timer />
-        </header>
-        <Buzzers />
+        {GameModes[this.state.gameMode] || (
+          <div style={{
+            height: '100%',
+            display: 'flex',
+            justifyContent: 'space-evenly',
+            alignItems: 'center'
+            }}>
+            <Button data-id="0" onClick={this.handleChange}>Be First</Button>
+            <Button data-id="1" onClick={this.handleChange}>Know It All</Button>
+          </div>
+        )}
       </div>
     );
   }
