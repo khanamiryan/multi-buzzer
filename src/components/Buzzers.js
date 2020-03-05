@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import { handleBuzzer, clearData, hasConnection } from '../socket';
+import { clearData } from '../socket';
 import '../stylesheets/Buzzers.css';
+
+import openSocket  from 'socket.io-client';
+const socket = openSocket('http://api.zz.xskytech.com');
 
 class Buttons extends Component {
     constructor(props) {
@@ -10,23 +13,20 @@ class Buttons extends Component {
 
     componentDidMount() {
         clearData();
-        hasConnection(hasConnection => this.setState({ isConnectionOpen: hasConnection }));
-        handleBuzzer(data => {
-            if (this.state.isConnectionOpen) {
-                this.setState({ data });
-            }
+        socket.on('touchSignal', (data) => {
+            this.setState({ data });
         });
     }
 
     render() {
         return (
             <div className="buzzers">
-                <div className={!!this.state.data[0] ? `buzzer active ${this.state.data[0]}` : 'buzzer'}></div>
-                <div className={!!this.state.data[1] ? `buzzer active ${this.state.data[1]}` : 'buzzer'}></div>
-                <div className={!!this.state.data[2] ? `buzzer active ${this.state.data[2]}` : 'buzzer'}></div>
-                <div className={!!this.state.data[3] ? `buzzer active ${this.state.data[3]}` : 'buzzer'}></div>
-                <div className={!!this.state.data[4] ? `buzzer active ${this.state.data[4]}` : 'buzzer'}></div>
-                <div className={!!this.state.data[5] ? `buzzer active ${this.state.data[5]}` : 'buzzer'}></div>
+                <div className={!!this.state.data[0] ? `buzzer active ${this.state.data[0]}` : 'buzzer'} style={{ backgroundColor: this.state.data[0] }}></div>
+                <div className={!!this.state.data[1] ? `buzzer active ${this.state.data[1]}` : 'buzzer'} style={{ backgroundColor: this.state.data[1] }}></div>
+                <div className={!!this.state.data[2] ? `buzzer active ${this.state.data[2]}` : 'buzzer'} style={{ backgroundColor: this.state.data[2] }}></div>
+                <div className={!!this.state.data[3] ? `buzzer active ${this.state.data[3]}` : 'buzzer'} style={{ backgroundColor: this.state.data[3] }}></div>
+                <div className={!!this.state.data[4] ? `buzzer active ${this.state.data[4]}` : 'buzzer'} style={{ backgroundColor: this.state.data[4] }}></div>
+                <div className={!!this.state.data[5] ? `buzzer active ${this.state.data[5]}` : 'buzzer'} style={{ backgroundColor: this.state.data[5] }}></div>
             </div>
         );
     }

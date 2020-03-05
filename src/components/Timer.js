@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { clearData, toggleConnection } from '../socket';
 import { Button } from 'reactstrap';
-import timeSound from '../audio/time-sound.mp3';
-import timeSoundDanger from '../audio/time-sound-2.mp3';
+// import timeSound from '../audio/time-sound.mp3';
+// import timeSoundDanger from '../audio/time-sound-2.mp3';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../stylesheets/Timer.css';
 
@@ -55,10 +55,10 @@ class Timer extends Component {
     }
 
     resetTimer() {
-        clearInterval(this.timer);
-        this.timer = 0;
-        this.setState({ time: { m: [0, 1], s: [0, 0] }, seconds: 60, timeColor: '#ffffff' });
-        toggleConnection(true);
+        // clearInterval(this.timer);
+        // this.timer = 0;
+        // this.setState({ time: { m: [0, 1], s: [0, 0] }, seconds: 60, timeColor: '#ffffff' });
+        // toggleConnection(true);
         clearData();
     }
 
@@ -109,18 +109,18 @@ class Timer extends Component {
     }
 
     render() {
-        let timeColor = {
+        /* let timeColor = {
             color: this.state.timeColor
-        };
+        }; */
 
         return (
             <div className="timer">
                 <div className="buttons">
-                    <Button color="success" onClick={this.startTimer}>Start</Button>
-                    <Button color="warning" onClick={this.pauseTimer}>Pause</Button>
+                    {/* <Button color="success" onClick={this.startTimer}>Start</Button>
+                    <Button color="warning" onClick={this.pauseTimer}>Pause</Button> */}
                     <Button color="danger" onClick={this.resetTimer}>Reset</Button>
                 </div>
-                <audio id="timeSound" src={timeSound}></audio>
+                {/* <audio id="timeSound" src={timeSound}></audio>
                 <audio id="timeSoundDanger" src={timeSoundDanger}></audio>
                 <div className="flip-container" style={timeColor}>
                     <div className="time-control" onClick={this.decreaseTime}>-</div>
@@ -138,7 +138,7 @@ class Timer extends Component {
                         <div className="digit">{this.state.time.s[1]}</div>
                     </div>
                     <div className="time-control" onClick={this.increaseTime}>+</div>
-                </div>
+                </div> */}
             </div>
         );
     }

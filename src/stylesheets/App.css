@@ -9,9 +9,17 @@
 
 .App-header {
   background-color: #222;
-  height: 200px;
+  /* height: 200px; */
   padding: 20px;
   color: white;
+  position: relative;
+}
+
+.App-header > a > img {
+  width: 50px;
+  position: absolute;
+  right: 15px;
+  top: 15px;
 }
 
 .App-title {
@@ -25,4 +33,30 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.ginny-container {
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  margin-left: -120px;
+  margin-top: -180px;
+}
+
+.ginny-container img {
+  width: 240px;
+}
+
+.made-by {
+  text-align: center;
+  position: fixed;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  color: #444;
+  font-weight: bold;
+}
+
+.made-by:hover, .made-by:active, .made-by:focus {
+  text-decoration: none;
 }

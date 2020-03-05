@@ -1,16 +1,16 @@
 import openSocket  from 'socket.io-client';
-const socket = openSocket('http://localhost:5000');
+const socket = openSocket('http://192.168.1.207:4000');
 
 function clearData() {
-    socket.emit('reset', true);
+    socket.emit('resetSignalSequence');
 }
 
 function handleBuzzer(cb) {
-    socket.on('pushed', data => cb(data));
+    socket.on('touchSignal', data => cb(data));
 }
 
 function toggleConnection(open) {
-    socket.emit('toggleConnection', open);
+    socket.emit('resetSignalSequence', open);
 }
 
 function hasConnection(cb) {
