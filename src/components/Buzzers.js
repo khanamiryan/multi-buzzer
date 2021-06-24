@@ -1,21 +1,37 @@
 import React, { Component } from 'react';
-import { handleBuzzer, clearData, hasConnection } from '../socket';
+ // import { handleBuzzer, clearData, hasConnection } from '../socket';
 import '../stylesheets/Buzzers.css';
+const sse=  new EventSource("http://buzzer_game.local/events");
+
+
+
 
 class Buttons extends Component {
     constructor(props) {
         super(props);
         this.state = { data: [], isConnectionOpen: true };
+
+
     }
 
     componentDidMount() {
-        clearData();
-        hasConnection(hasConnection => this.setState({ isConnectionOpen: hasConnection }));
-        handleBuzzer(data => {
-            if (this.state.isConnectionOpen) {
-                this.setState({ data });
+        sse.addEventListener("state",  e =>{
+
+
+            var obj = JSON.parse(e.data);
+            if(obj.id==="button-r"&&obj.value===true){
+                var arr = this.state.data.concat('r');
+                this.setState({data:arr});
+
             }
-        });
+        }, true);
+        // clearData();
+        // hasConnection(hasConnection => this.setState({ isConnectionOpen: hasConnection }));
+        // handleBuzzer(data => {
+        //     if (this.state.isConnectionOpen) {
+        //         this.setState({ data });
+        //     }
+        // });
     }
 
     render() {

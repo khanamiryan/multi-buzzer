@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { clearData, toggleConnection } from '../socket';
+// import { clearData, toggleConnection } from '../socket';
 import { Button } from 'reactstrap';
 import timeSound from '../audio/time-sound.mp3';
 import timeSoundDanger from '../audio/time-sound-2.mp3';
@@ -44,22 +44,22 @@ class Timer extends Component {
     startTimer() {
         if (this.timer === 0) {
             this.timer = setInterval(this.countDown, 1000);
-            toggleConnection(true);
+            // toggleConnection(true);
         }
     }
 
     pauseTimer() {
         clearInterval(this.timer);
         this.timer = 0;
-        toggleConnection(false);
+        // toggleConnection(false);
     }
 
     resetTimer() {
         clearInterval(this.timer);
         this.timer = 0;
         this.setState({ time: { m: [0, 1], s: [0, 0] }, seconds: 60, timeColor: '#ffffff' });
-        toggleConnection(true);
-        clearData();
+        // toggleConnection(true);
+        // clearData();
     }
 
     countDown() {
@@ -88,7 +88,7 @@ class Timer extends Component {
         // Check if we're at zero.
         if (seconds === 0) {
             clearInterval(this.timer);
-            toggleConnection(false);
+            // toggleConnection(false);
         }
     }
 

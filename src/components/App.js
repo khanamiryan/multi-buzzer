@@ -3,7 +3,9 @@ import Timer from './Timer';
 import Buzzers from './Buzzers';
 import '../stylesheets/App.css';
 
+
 class App extends Component {
+
   render() {
     return (
       <div className="App">
