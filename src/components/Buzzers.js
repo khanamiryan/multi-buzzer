@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
  // import { handleBuzzer, clearData, hasConnection } from '../socket';
 import '../stylesheets/Buzzers.css';
-const sse=  new EventSource("http://buzzer_game.local/events");
+const sse=  new EventSource("http://buzzer_game.local/events"); //guce esi arandzin component darna
 
 
 
@@ -17,12 +17,11 @@ class Buttons extends Component {
     componentDidMount() {
         sse.addEventListener("state",  e =>{
 
-
             var obj = JSON.parse(e.data);
             if(obj.id==="switch-button-r"&&obj.value===true){
-                var arr = this.state.data.concat('r');
-                this.setState({data:arr});
-
+                this.setState({data:this.state.data.concat('r')});
+            }else if(obj.id==="switch-button-b"&&obj.value===true){
+                this.setState({data:this.state.data.concat('b')});
             }
         }, true);
         // clearData();
