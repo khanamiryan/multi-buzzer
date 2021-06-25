@@ -19,7 +19,7 @@ class Buttons extends Component {
 
 
             var obj = JSON.parse(e.data);
-            if(obj.id==="button-r"&&obj.value===true){
+            if(obj.id==="switch-button-r"&&obj.value===true){
                 var arr = this.state.data.concat('r');
                 this.setState({data:arr});
 
